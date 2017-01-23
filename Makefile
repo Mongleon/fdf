@@ -6,7 +6,7 @@
 #    By: varichar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/22 13:41:20 by varichar          #+#    #+#              #
-#    Updated: 2017/01/22 17:48:39 by varichar         ###   ########.fr        #
+#    Updated: 2017/01/23 07:48:03 by varichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,18 @@ cleanlibx:
 	@make -C minilibx_macos clean
 
 endif
+
+endif
+
+ifeq ($(UNAME), Linux)
+
+minilibx:
+	@make -C minilibx
+	@echo "$(GREEN)[✓]$(NC) library $@ built"
+
+cleanlibx:
+	@make -C minilibx clean
+	@echo "$(RED)[-]$(NC) Objects of minilibx cleaned"
 
 endif
 
