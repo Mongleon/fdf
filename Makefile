@@ -6,7 +6,7 @@
 #    By: varichar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/22 13:41:20 by varichar          #+#    #+#              #
-#    Updated: 2017/01/22 17:36:21 by varichar         ###   ########.fr        #
+#    Updated: 2017/01/22 17:48:39 by varichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,11 +41,9 @@ ifeq ($(MACOS_VER), 10.12)
 
 minilibx:
 	@make -C minilibx_macos_sierra
-	@echo "$(GREEN)[✓]$(NC) library $@ built"
 
 cleanlibx:
 	@make -C minilibx_macos_sierra clean
-	@echo "$(RED)[-]$(NC) Objects of minilibx cleaned"
 
 endif
 
@@ -53,11 +51,9 @@ ifeq ($(MACOS_VER), 10.11)
 
 minilibx:
 	@make -C minilibx_macos
-	@echo "$(GREEN)[✓]$(NC) library $@ built"
 
 cleanlibx:
 	@make -C minilibx_macos clean
-	@echo "$(RED)[-]$(NC) Objects of minilibx cleaned"
 
 endif
 
