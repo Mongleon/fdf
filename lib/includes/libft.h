@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/04 13:44:40 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/19 16:30:28 by varichar         ###   ########.fr       */
+/*   Updated: 2017/01/24 08:51:57 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-# include "printf.h"
 # include <wchar.h>
+# include "ft_printf.h"
+# include "get_next_line.h"
 
 typedef struct	s_list
 {
