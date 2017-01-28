@@ -6,7 +6,7 @@
 #    By: varichar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/22 13:41:20 by varichar          #+#    #+#              #
-#    Updated: 2017/01/27 16:55:12 by varichar         ###   ########.fr        #
+#    Updated: 2017/01/28 18:48:45 by varichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fdf
 HEADER = -Iincludes -Ilib/includes
 SRCS_P := $(shell ls srcs/*.c)
 SRCS := $(addprefix srcs/, $(SRCS_P))
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -ggdb
 LIB = -Llib -lft
 CC = gcc
 OBJ := $(SRCS_P:.c=.o)
@@ -31,7 +31,9 @@ endif
 
 all: $(NAME)
 
-$(NAME): minilibx lib $(OBJ)
+$(NAME): $(OBJ)
+	@$(MAKE) minilibx
+	@$(MAKE) lib
 	@echo "$(GREEN)[✓]$(NC) Objects of $(NAME) compiled"
 	@$(CC) -o $@ $(HEADER) $(CFLAGS) $(LIB) $(OBJ) 
 	@echo "$(GREEN)[✓]$(NC) library $(NAME) built"
@@ -85,7 +87,7 @@ cleanlibx:
 endif
 
 lib:
-	@make -C lib/
+	@make -C lib
 
 clean:
 	@rm -Rf $(OBJ)

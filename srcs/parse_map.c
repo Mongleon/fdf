@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 15:51:36 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/27 17:06:49 by varichar         ###   ########.fr       */
+/*   Updated: 2017/01/28 18:26:48 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ int		nb_words(char *line)
 	{
 		if (*line == ' ')
 			w = 0;
-		else if (ft_isdigit(*line) && w == 0)
+		else if ((ft_isdigit(*line) || *line == '-') && w == 0)
 		{
 			nb++;
 			w = 1;
 		}
-		else if (!ft_isdigit(*line))
+		else if (!ft_isdigit(*line) && !(*line == '-'))
 			return (-1);
 		line++;
 	}
@@ -64,7 +64,7 @@ int		*parse_line(char *line)
 	{
 		while (*line)
 		{
-			if (ft_isdigit(*line) && !f)
+			if ((ft_isdigit(*line) || *line == '-') && !f)
 			{
 				f = 1;
 				tab[i] = ft_atoi(line);
@@ -72,7 +72,7 @@ int		*parse_line(char *line)
 			}
 			else if (*line == ' ')
 				f = 0;
-			else if (!ft_isdigit(*line))
+			else if (!ft_isdigit(*line) && !(*line == '-'))
 				return (NULL);
 			line++;
 		}
