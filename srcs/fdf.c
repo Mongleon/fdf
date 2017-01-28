@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:50:43 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/27 17:07:16 by varichar         ###   ########.fr       */
+/*   Updated: 2017/01/28 15:50:46 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int		fdf(char *map)
 	env->map = parse_map(map);
 	while (*(env->map))
 	{
-		while (**(env->map) > -1)
+		while (*(*(env->map) + 1) > -1)
 		{
 			ft_printf("%-3d", **(env->map));
 			*(env->map) += 1;
 		}
-		ft_printf("\n");
+		ft_printf("%d\n", **(env->map));
 		env->map++;
 	}
 //	mlx_loop(env);
