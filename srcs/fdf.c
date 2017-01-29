@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:50:43 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/28 18:24:25 by varichar         ###   ########.fr       */
+/*   Updated: 2017/01/29 15:43:20 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,14 @@ int		fdf(char *map)
 
 	if ((env = malloc(sizeof(t_env))))
 	{
-		//env->mlx = mlx_init();
-		//env->win = mlx_new_window(env->mlx, 400, 400, "test fdf");
-		env->map = parse_map(map);
-		while (*(env->map))
+		if ((env->map = parse_map(map)))
 		{
-			while (*(*(env->map) + 1) > -1)
-			{
-				ft_printf("%-2d", **(env->map));
-				*(env->map) += 1;
-			}
-			ft_printf("%d\n", **(env->map));
-			env->map++;
+			env->mlx = mlx_init();
+			env->win = mlx_new_window(env->mlx, 400, 400, "test fdf");
+			mlx_loop(env);
 		}
-//		mlx_loop(env);
+		else
+			ft_printf("Map error on %s\n", map);
 	}
 	return (0);
 }

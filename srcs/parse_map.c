@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 15:51:36 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/28 18:26:48 by varichar         ###   ########.fr       */
+/*   Updated: 2017/01/29 15:43:51 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ int		**parse_map(char *mapfile)
 		fd = open(mapfile, O_RDONLY);
 		while (get_next_line(fd, &line) > 0)
 		{
-			map[i] = parse_line(line);
+			if (!(map[i] = parse_line(line)))
+				return (NULL);
 			i++;
 		}
 		close(fd);
