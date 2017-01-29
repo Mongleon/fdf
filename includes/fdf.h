@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:26:19 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/27 16:48:25 by varichar         ###   ########.fr       */
+/*   Updated: 2017/01/29 15:55:15 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct	s_env
 {
 	void		*mlx;
 	void		*win;
+	void		*img;
 	int			**map;
 }				t_env;
 
