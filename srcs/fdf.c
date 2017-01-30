@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:50:43 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/29 18:10:14 by varichar         ###   ########.fr       */
+/*   Updated: 2017/01/30 20:58:13 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,43 +22,22 @@ void	fdf_usage(const char *name)
 int		fdf(char *map)
 {
 	t_env	*env;
-	int		x = 24;
-	int		y = 20;
+	t_coord *start;
+	t_coord *end;
 
+	start = malloc(sizeof(t_coord));
+	end = malloc(sizeof(t_coord));
 	if ((env = malloc(sizeof(t_env))))
 	{
 		if ((env->map = parse_map(map)))
 		{
 			env->mlx = mlx_init();
 			env->win = mlx_new_window(env->mlx, 400, 400, "test fdf");
-			static char * exemple_xpm[] = {
-				"24 20 3 1",
-				"       c None",
-				".      c #3A32E4",
-				"+      c #E43232",
-				"                        ",
-				"    ..                  ",
-				"   ....                 ",
-				"  ......++++++++        ",
-				" .........+++++++       ",
-				" ..........+++++++      ",
-				" ............++++++     ",
-				" .............++++++    ",
-				"  ..............++++    ",
-				"   +.............+++    ",
-				"   ++.............++    ",
-				"   +++.............+    ",
-				"   +++++.............   ",
-				"   ++++++.............. ",
-				"   ++++++++............ ",
-				"   +++++++++........... ",
-				"    +++++++++.........  ",
-				"     ++++++++++.......  ",
-				"      ++++++++++.....   ",
-				"       +++++++++ ...    "};
-			env->img = mlx_xpm_to_image(env->mlx, exemple_xpm, &x, &y);
-			mlx_put_image_to_window(env->mlx, env->win, env->img, 200, 200);
-			
+			start->x = 10;
+			start->y = 10;
+			end->x = 390;
+			end->y = 390;
+			ft_drawline(env, end, start);
 			mlx_loop(env);
 		}
 		else
