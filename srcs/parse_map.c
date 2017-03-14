@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 15:51:36 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/29 15:43:51 by varichar         ###   ########.fr       */
+/*   Updated: 2017/02/11 04:35:16 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		nb_words(char *line)
 	return (nb);
 }
 
-int		*parse_line(char *line)
+int		*parse_line(t_env *env, char *line)
 {
 	int		*tab;
 	int		i;
@@ -76,12 +76,13 @@ int		*parse_line(char *line)
 				return (NULL);
 			line++;
 		}
+		env->mapx = i;
 		tab[i] = -1;
 	}
 	return (tab);
 }
 
-int		**parse_map(char *mapfile)
+int		**parse_map(t_env *env, char *mapfile)
 {
 	char	*line;
 	int		**map;
@@ -94,10 +95,11 @@ int		**parse_map(char *mapfile)
 		fd = open(mapfile, O_RDONLY);
 		while (get_next_line(fd, &line) > 0)
 		{
-			if (!(map[i] = parse_line(line)))
+			if (!(map[i] = parse_line(env, line)))
 				return (NULL);
 			i++;
 		}
+		env->mapy = i;
 		close(fd);
 		map[i] = NULL;
 	}
