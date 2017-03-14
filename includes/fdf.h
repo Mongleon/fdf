@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:26:19 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/13 22:31:30 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/14 11:50:43 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ typedef struct	s_coord
 	int			y;
 	int			z;
 }				t_coord;
+
+typedef struct	s_line
+{
+	t_coord		start;
+	t_coord		end;
+}				t_line;
 
 typedef struct	s_draw
 {
@@ -72,5 +78,6 @@ void	rotationx(t_coord *coord, int angle);
 void	rotationy(t_coord *coord, int angle);
 void	rotationz(t_coord *coord, int angle);
 void	rotation(t_coord *start, t_coord *end, t_coord rot);
+void	init_env(t_env *env, char *map);
 
 #endif

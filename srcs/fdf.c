@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:50:43 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/13 22:39:00 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/14 11:50:22 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,33 @@ void	int_to_coord(t_coord *coords, int x, int y, int z)
 	coords->z = z;
 }
 
+void	print_line(t_env *env, t_line *line, int i, int j)
+{
+	t_coord *start;
+	t_coord *end;
+
+	start = &(line->start);
+	end = &(line->end);
+	if (j < env->mapy - 1)
+	{
+		int_to_coord(start, env->posx + i * env->scale, env->posy + j * \
+				env->scale, env->map[j][i] * (env->scale / env->height));
+		int_to_coord(end, env->posx + i * env->scale, env->posy + (j + 1) * \
+				env->scale, env->map[j + 1][i] * (env->scale / env->height));
+		rotation(start, end, env->rot);
+		ft_drawline(env, start, end);
+	}
+	if (i < env->mapx - 1)
+	{
+		int_to_coord(start, env->posx + i * env->scale, env->posy + j * \
+				env->scale, env->map[j][i] * (env->scale / env->height));
+		int_to_coord(end, env->posx + (i + 1) * env->scale, env->posy + j * \
+				env->scale, env->map[j][i + 1] * (env->scale / env->height));
+		rotation(start, end, env->rot);
+		ft_drawline(env, start, end);
+	}
+}
+
 void 	print_map(t_env *env)
 {
 	int i;
@@ -34,26 +61,12 @@ void 	print_map(t_env *env)
 
 	i = 0;
 	j = 0;
-	t_coord	start;
-	t_coord	end;
+	t_line	line;
 	while (j < env->mapy)
 	{
 		while (i < env->mapx)
 		{
-			if (j < env->mapy - 1)
-			{
-				int_to_coord(&start, env->posx + i * env->scale, env->posy + j * env->scale, env->map[j][i] * (env->scale / env->height));
-				int_to_coord(&end, env->posx + i * env->scale, env->posy + (j + 1) * env->scale, env->map[j + 1][i] * (env->scale / env->height));
-				rotation(&start, &end, env->rot);
-				ft_drawline(env, &start, &end);
-			}
-			if (i < env->mapx - 1)
-			{
-				int_to_coord(&start, env->posx + i * env->scale, env->posy + j * env->scale, env->map[j][i] * (env->scale / env->height));
-				int_to_coord(&end, env->posx + (i + 1) * env->scale, env->posy + j * env->scale, env->map[j][i + 1] * (env->scale / env->height));
-				rotation(&start, &end, env->rot);
-				ft_drawline(env, &start, &end);
-			}
+			print_line(env, &line, i, j);
 			i++;
 		}
 		i = 0;
@@ -68,20 +81,7 @@ int		fdf(char *map)
 
 	if ((env.map = parse_map(&env, map)))
 	{
-		env.sizex = WIN_X;
-		env.sizey = WIN_Y;
-		env.mlx = mlx_init();
-		env.scale = 20;
-		env.win = mlx_new_window(env.mlx, env.sizex, env.sizey, map);
-		env.img = mlx_new_image(env.mlx, env.sizex, env.sizey);
-		env.data = mlx_get_data_addr(env.img, &(env.color), \
-				&(env.size), &(env.endian));
-		env.posx = (env.sizex / env.mapx) * 4;
-		env.posy = (env.sizey / env.mapy) * 4;
-		env.height = 1;
-		env.rot.x = 0;
-		env.rot.y =	0;
-		env.rot.z = 0;
+		init_env(&env, map);
 		print_map(&env);
 		mlx_loop(env.mlx);
 	}
