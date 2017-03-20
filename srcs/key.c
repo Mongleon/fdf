@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 08:12:07 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/20 13:29:41 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:02:50 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int		keyhook(int keycode, t_env *env)
 	rot_key(keycode, env);
 	trans_key(keycode, env);
 	scale_key(keycode, env);
-	printf("%d\n", keycode);
 	mlx_destroy_image(env->mlx, env->img);
 	print_map(env);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 09:27:07 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/19 18:18:22 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:02:38 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	mlx_imgpixel_put(t_env *env, int x, int y, int color)
 {
-	if (y < env->sizey && x < env->sizex)
+	if (y < env->sizey && x < env->sizex && x >= 0 && y >= 0)
 	{
 		ft_memcpy(&(env->data)[x * 4 + y * env->size], &(color),\
 				(unsigned int)sizeof(int));
