@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:50:43 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/14 11:50:22 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/19 18:31:28 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@
 void	fdf_usage(const char *name)
 {
 	ft_printf("usage: %s [file]\n", name);
-}
-
-void	int_to_coord(t_coord *coords, int x, int y, int z)
-{
-	coords->x = x;
-	coords->y = y;
-	coords->z = z;
 }
 
 void	print_line(t_env *env, t_line *line, int i, int j)
@@ -62,6 +55,10 @@ void 	print_map(t_env *env)
 	i = 0;
 	j = 0;
 	t_line	line;
+	mlx_clear_window(env->mlx, env->win);
+	env->img = mlx_new_image(env->mlx, env->sizex, env->sizey);
+	env->data = mlx_get_data_addr(env->img, &(env->color), \
+			&(env->size), &(env->endian));
 	while (j < env->mapy)
 	{
 		while (i < env->mapx)
@@ -83,6 +80,7 @@ int		fdf(char *map)
 	{
 		init_env(&env, map);
 		print_map(&env);
+		init_hooks(&env);
 		mlx_loop(env.mlx);
 	}
 	else

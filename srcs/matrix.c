@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/19 21:01:16 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/13 22:23:19 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/19 17:43:36 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,40 +26,37 @@ void	rotationz(t_coord *coords, int a)
 {
 	int x;
 	int y;
-	int z;
+	float an;
 
-	x = coords->x;
-	y = coords->y;
-	z = coords->z;
-	coords->x = x * cos(a) - y * sin(a);
-	coords->y = x * sin(a) + y * cos(a);
-	coords->z = z;
+	an = a * M_PI / 180;
+	x = coords->x * cos(an) - coords->y * sin(an);
+	y = coords->x * sin(an) + coords->y * cos(an);
+	coords->x = x;
+	coords->y = y;
 }
 
 void	rotationy(t_coord *coords, int a)
 {
 	int x;
-	int y;
 	int z;
+	float an;
 
-	x = coords->x;
-	y = coords->y;
-	z = coords->z;
-	coords->x = x * cos(a) + z * sin(a);
-	coords->y = y;
-	coords->z = -(x * sin(a)) + z * cos(a);
+	an = a * M_PI / 180;
+	x = coords->x * cos(an) + coords->z * sin(an);
+	z = -(coords->x * sin(an)) + coords->z * cos(an);
+	coords->x = x;
+	coords->z = z;
 }
 
 void	rotationx(t_coord *coords, int a)
 {
-	int x;
 	int y;
 	int z;
+	float an;
 
-	x = coords->x;
-	y = coords->y;
-	z = coords->z;
-	coords->x = x;
-	coords->y = y * cos(a) - z * sin(a);
-	coords->z = y * sin(a) + z * cos(a);
+	an = a * M_PI / 180;
+	y = coords->y * cos(an) - coords->z * sin(an);
+	z = coords->y * sin(an) + coords->z * cos(an);
+	coords->y = y;
+	coords->z = z;
 }

@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/14 11:42:09 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/19 17:34:28 by varichar         ###   ########.fr       */
+/*   Created: 2017/03/15 08:30:37 by varichar          #+#    #+#             */
+/*   Updated: 2017/03/15 08:49:01 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	init_hooks(t_env *env)
+void	int_to_coord(t_coord *coords, int x, int y, int z)
 {
-	mlx_key_hook(env->win, keyhook, env);
-}
-
-void	init_env(t_env *env, char *map)
-{
-	env->sizex = WIN_X;
-	env->sizey = WIN_Y;
-	env->mlx = mlx_init();
-	env->scale = 20;
-	env->win = mlx_new_window(env->mlx, env->sizex, env->sizey, map);
-	env->posx = (env->sizex / env->mapx) * 4;
-	env->posy = (env->sizey / env->mapy) * 4;
-	env->height = 1;
-	env->rot.x = 50;
-	env->rot.y = 50;
-	env->rot.z = 50;
+	coords->x = x;
+	coords->y = y;
+	coords->z = z;
 }

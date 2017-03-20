@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   end.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/14 11:42:09 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/19 17:34:28 by varichar         ###   ########.fr       */
+/*   Created: 2017/03/15 08:49:48 by varichar          #+#    #+#             */
+/*   Updated: 2017/03/15 08:50:36 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	init_hooks(t_env *env)
+void	end_run(t_env *env)
 {
-	mlx_key_hook(env->win, keyhook, env);
-}
-
-void	init_env(t_env *env, char *map)
-{
-	env->sizex = WIN_X;
-	env->sizey = WIN_Y;
-	env->mlx = mlx_init();
-	env->scale = 20;
-	env->win = mlx_new_window(env->mlx, env->sizex, env->sizey, map);
-	env->posx = (env->sizex / env->mapx) * 4;
-	env->posy = (env->sizey / env->mapy) * 4;
-	env->height = 1;
-	env->rot.x = 50;
-	env->rot.y = 50;
-	env->rot.z = 50;
+	mlx_destroy_window(env->mlx, env->win);
+	exit(0);
 }
