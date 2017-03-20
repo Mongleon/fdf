@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:50:43 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/20 14:01:58 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/20 16:44:05 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int		fdf(char *map)
 		init_env(&env, map);
 		print_map(&env);
 		init_hooks(&env);
+		mlx_hook(env.win, 2, 2, (int (*)())keyhook, &env);
+		mlx_hook(env.win, 17, (1L << 17), (int (*)())end_run, &env);
 		mlx_loop(env.mlx);
 	}
 	else
