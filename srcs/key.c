@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 08:12:07 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/19 18:35:24 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:29:41 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	trans_key(int keycode, t_env *env)
 
 void	scale_key(int keycode, t_env *env)
 {
-	if (keycode == 35)
+	if (keycode == 24)
 		env->scale += 2;
-	if (keycode == 41)
+	if (keycode == 27)
 		env->scale -= 2;
 }
 

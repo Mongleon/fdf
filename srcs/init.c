@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 11:42:09 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/19 17:34:28 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:25:06 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	init_env(t_env *env, char *map)
 	env->posx = (env->sizex / env->mapx) * 4;
 	env->posy = (env->sizey / env->mapy) * 4;
 	env->height = 1;
-	env->rot.x = 50;
-	env->rot.y = 50;
-	env->rot.z = 50;
+	env->rot.x = 0;
+	env->rot.y = 0;
+	env->rot.z = 0;
 }
