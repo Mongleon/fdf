@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:50:43 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/20 16:44:05 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/21 13:14:38 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	fdf_usage(const char *name)
 
 void	print_line(t_env *env, t_line *line, int i, int j)
 {
-	t_coord *start;
-	t_coord *end;
+	t_coord	*start;
+	t_coord	*end;
 
 	start = &(line->start);
 	end = &(line->end);
@@ -47,14 +47,14 @@ void	print_line(t_env *env, t_line *line, int i, int j)
 	}
 }
 
-void 	print_map(t_env *env)
+void	print_map(t_env *env)
 {
-	int i;
-	int	j;
+	int		i;
+	int		j;
+	t_line	line;
 
 	i = 0;
 	j = 0;
-	t_line	line;
 	mlx_clear_window(env->mlx, env->win);
 	env->img = mlx_new_image(env->mlx, env->sizex, env->sizey);
 	env->data = mlx_get_data_addr(env->img, &(env->color), \
@@ -69,7 +69,7 @@ void 	print_map(t_env *env)
 		i = 0;
 		j++;
 	}
-	mlx_put_image_to_window (env->mlx, env->win, env->img, 0, 0);
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }
 
 int		fdf(char *map)
@@ -95,6 +95,6 @@ int		main(int argc, const char **argv)
 	if (argc == 2)
 		fdf((char*)argv[1]);
 	else
-	fdf_usage(argv[0]);
+		fdf_usage(argv[0]);
 	return (0);
 }

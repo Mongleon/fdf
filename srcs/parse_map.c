@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 15:51:36 by varichar          #+#    #+#             */
-/*   Updated: 2017/02/11 04:35:16 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/21 13:15:39 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int		nbline(char *mapfile)
 {
-	int	nb;
-	int	fd;
-	char *line;
+	int		nb;
+	int		fd;
+	char	*line;
 
 	nb = 0;
 	fd = open(mapfile, O_RDONLY);
@@ -32,7 +32,7 @@ int		nbline(char *mapfile)
 int		nb_words(char *line)
 {
 	int	w;
-	int nb;
+	int	nb;
 
 	w = 0;
 	nb = 0;
@@ -67,8 +67,7 @@ int		*parse_line(t_env *env, char *line)
 			if ((ft_isdigit(*line) || *line == '-') && !f)
 			{
 				f = 1;
-				tab[i] = ft_atoi(line);
-				i++;
+				tab[i++] = ft_atoi(line);
 			}
 			else if (*line == ' ')
 				f = 0;

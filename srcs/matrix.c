@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/19 21:01:16 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/20 14:03:00 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/21 13:12:57 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	rotation(t_coord *start, t_coord *end, t_coord rot)
 
 void	rotationz(t_coord *coords, int a)
 {
-	int x;
-	int y;
-	float an;
+	int		x;
+	int		y;
+	float	an;
 
 	an = a * M_PI / 180;
 	x = coords->x * cos(an) - coords->y * sin(an);
@@ -37,9 +37,9 @@ void	rotationz(t_coord *coords, int a)
 
 void	rotationy(t_coord *coords, int a)
 {
-	int x;
-	int z;
-	float an;
+	int		x;
+	int		z;
+	float	an;
 
 	an = a * M_PI / 180;
 	x = coords->x * cos(an) + coords->z * sin(an);
@@ -50,9 +50,9 @@ void	rotationy(t_coord *coords, int a)
 
 void	rotationx(t_coord *coords, int a)
 {
-	int y;
-	int z;
-	float an;
+	int		y;
+	int		z;
+	float	an;
 
 	an = a * M_PI / 180;
 	y = coords->y * cos(an) - coords->z * sin(an);

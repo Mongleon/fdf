@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/04 13:44:40 by varichar          #+#    #+#             */
-/*   Updated: 2017/01/30 20:40:38 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/21 13:34:18 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ int				ft_putstr_nb(char *str, int nb);
 int				ft_putnchar(char c, int nb);
 int				ft_nbrlen_base(long long n, int base, int prec);
 int				ft_wcharlen(wchar_t c);
+void			ft_memtabdel(void **strtab);
 
 #endif

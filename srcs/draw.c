@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 09:27:07 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/20 14:02:38 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/21 13:12:10 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_drawline(t_env *env, t_coord *start, t_coord *end)
 	d.dx = ft_abs(end->x - start->x);
 	d.sx = (start->x < end->x) ? 1 : -1;
 	d.dy = ft_abs(end->y - start->y);
-	d.sy = (start->y < end->y) ? 1 : -1; 
+	d.sy = (start->y < end->y) ? 1 : -1;
 	d.err = ((d.dx > d.dy) ? d.dx : -d.dy) / 2;
 	mlx_imgpixel_put(env, start->x, start->y, 0x00FFFFFF);
 	while (start->x != end->x || start->y != end->y)
