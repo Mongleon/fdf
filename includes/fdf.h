@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:26:19 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/19 17:43:59 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/20 20:43:47 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ typedef struct	s_env
 	int			sizey;
 	int			posx;
 	int			posy;
-	int			scale;
+	float		scale;
 	t_coord		rot;
-	int			height;
+	float		height;
 }				t_env;
 
 int		**parse_map(t_env *env, char *mapfile);
