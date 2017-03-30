@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:50:43 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/21 13:14:38 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/30 13:49:07 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	print_map(t_env *env)
 		j++;
 	}
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+	print_hints(env);
 }
 
 int		fdf(char *map)

@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:26:19 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/21 13:33:27 by varichar         ###   ########.fr       */
+/*   Updated: 2017/03/30 13:47:10 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ int				keyhook(int keycode, t_env *env);
 void			init_hooks(t_env *env);
 void			end_run(t_env *env);
 void			print_map(t_env *env);
+void			print_hints(t_env *env);
 
 #endif
