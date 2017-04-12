@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 15:51:36 by varichar          #+#    #+#             */
-/*   Updated: 2017/03/21 13:15:39 by varichar         ###   ########.fr       */
+/*   Updated: 2017/04/12 17:58:35 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,20 @@ int		**parse_map(t_env *env, char *mapfile)
 	if ((map = (int**)malloc(sizeof(int*) * (nbline(mapfile) + 1))))
 	{
 		i = 0;
-		fd = open(mapfile, O_RDONLY);
-		while (get_next_line(fd, &line) > 0)
+		if ((fd = open(mapfile, O_RDONLY)) > 0)
 		{
-			if (!(map[i] = parse_line(env, line)))
-				return (NULL);
-			i++;
+			while (get_next_line(fd, &line) > 0)
+			{
+				if (!(map[i] = parse_line(env, line)))
+					return (NULL);
+				i++;
+			}
+			env->mapy = i;
+			close(fd);
+			map[i] = NULL;
 		}
-		env->mapy = i;
-		close(fd);
-		map[i] = NULL;
+		else
+			return (NULL);
 	}
 	return (map);
 }
